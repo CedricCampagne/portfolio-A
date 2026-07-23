@@ -8,6 +8,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "projects")
@@ -43,4 +45,9 @@ public class Project {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "project")
+    private List<ProjectTech> techs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "project")
+    private List<ProjectSection> sections = new ArrayList<>();
 }
