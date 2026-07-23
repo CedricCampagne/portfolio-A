@@ -20,6 +20,9 @@ public class ProjectSection {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column
+    private String Title;
+
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
