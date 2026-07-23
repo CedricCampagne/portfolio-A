@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProjectMapper {
 
-    public static ProjectResponse toResponse(Project project){
+    public ProjectResponse toResponse(Project project){
         return new ProjectResponse(
                 project.getId(),
                 project.getName(),
