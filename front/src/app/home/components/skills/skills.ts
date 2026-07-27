@@ -22,60 +22,60 @@ export class Skills {
     {
       name: 'Angular',
       category: 'Frontend',
-      icon: 'logos:angular-icon'
+      icon: '/icons/angular.svg'
     },
     {
       name: 'TypeScript',
       category: 'Frontend',
-      icon: 'logos:typescript-icon'
+      icon: '/icons/typescript.svg'
     },
     {
       name: 'HTML / CSS',
       category: 'Frontend',
-      icon: 'logos:html-5'
+      icon: '/icons/html.svg'
     },
     {
       name: 'Tailwind CSS',
       category: 'Frontend',
-      icon: 'logos:tailwindcss-icon'
+      icon: '/icons/tailwindcss.svg'
     },
     // Backend
     {
       name: 'Java',
       category: 'Backend',
-      icon: 'logos:java'
+      icon: '/icons/java.svg'
     },
     {
       name: 'Spring Boot',
       category: 'Backend',
-      icon: 'logos:spring-icon'
+      icon: '/icons/spring.svg'
     },
     {
       name: 'REST API',
       category: 'Backend',
-      icon: 'mdi:api'
+      icon: '/icons/rest-api.svg'
     },
     // Database
     {
       name: 'PostgreSQL',
       category: 'Database',
-      icon: 'logos:postgresql'
+      icon: '/icons/postgresql.svg'
     },
     // Outils
     {
       name: 'Git',
       category: 'Outils',
-      icon: 'logos:git-icon'
+      icon: '/icons/git.svg'
     },
     {
       name: 'GitHub',
       category: 'Outils',
-      icon: 'mdi:github'
+      icon: '/icons/github.svg'
     },
     {
       name: 'Postman',
       category: 'Outils',
-      icon: 'logos:postman-icon'
+      icon: '/icons/postman.svg'
     }
 
   ];

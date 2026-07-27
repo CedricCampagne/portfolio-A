@@ -30,12 +30,12 @@
           hover:shadow-2xl hover:scale-105
           transition-all duration-400 ease-in-out w-52"
         >
-
-          <!-- <iconify-icon
-            [icon]="skill.icon"
-            class="text-green-500 w-12 h-12 mb-4"
-          ></iconify-icon> -->
-
+        
+          <img
+            [src]="skill.icon"
+            [alt]="skill.name"
+            class="w-12 h-12 mb-4"
+          />
 
           <p class="font-semibold text-gray-900 text-center">
             {{ skill.name }}
