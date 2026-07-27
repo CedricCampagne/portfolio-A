@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProjectService } from '../../../projects/services/project.service';
 import { RouterLink } from '@angular/router';
@@ -22,6 +22,10 @@ export class Projects {
     {
       initialValue: []
     }
+  );
+
+  projectsSorted = computed (()=>
+    [...this.projects()].reverse()
   );
 
 }
