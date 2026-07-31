@@ -1,4 +1,19 @@
-@let p = project();
+@if (isLoading()) {
+
+<section class="py-32 flex flex-col items-center gap-6">
+
+    <div
+        class="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin">
+    </div>
+
+    <p class="text-gray-600 text-lg">
+        Chargement du projet...
+    </p>
+
+</section>
+
+} @else {
+    @let p = project();
 
 @if (p) {
 <section class="text-left max-w-5xl mx-auto px-6 sm:px-8 lg:px-0 py-20">
@@ -101,7 +116,28 @@
 </section>
 
 } @else {
-    <p class="text-center py-20">
-        Projet introuvable
-    </p>
+    <section class="py-32 text-center">
+
+        <h2 class="text-3xl font-semibold mb-4">
+            Projet introuvable
+        </h2>
+
+        <p class="text-gray-600 mb-8">
+            Le projet demandé n'existe pas ou n'est plus disponible.
+        </p>
+
+        <a
+            routerLink="/"
+            fragment="projects"
+            class="text-green-600 hover:underline"
+        >
+            ← Retour aux projets
+        </a>
+
+    </section>
+
+    }
 }
+
+
+
