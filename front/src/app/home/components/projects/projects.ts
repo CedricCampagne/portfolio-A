@@ -18,6 +18,15 @@ export class Projects {
   private projectService = inject(ProjectService);
 
   isLoading = signal(true);
+  showMessage = signal(false);
+
+  constructor(){
+    setTimeout(()=> {
+      if(this.isLoading()){
+        this.showMessage.set(true);
+      }
+    },5000);
+  }
 
   projects = toSignal(
     this.projectService.getProjects().pipe(
