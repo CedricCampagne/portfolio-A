@@ -1,10 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { switchMap } from 'rxjs';
-
-import { ProjectService } from '../services/project.service';
-import { finalize } from 'rxjs';
+import { projects } from '../../data/projects';
 
 @Component({
   selector: 'app-project-details',
@@ -16,20 +12,12 @@ import { finalize } from 'rxjs';
 export class ProjectDetails {
 
   private route = inject(ActivatedRoute);
-  private projectService = inject(ProjectService);
 
-  isLoading = signal(true);
+   readonly project = computed(() => {
+    const slug = this.route.snapshot.paramMap.get('slug');
 
-  readonly project = toSignal(
-    this.projectService.getProjectsBySlug(
-      this.route.snapshot.paramMap.get('slug')!
-    ).pipe(
-      finalize(() => this.isLoading.set(false))
-    ),
-    {
-      initialValue: null
-    }
-  );
+    return projects.find(project => project.slug === slug) ?? null;
+  });
 
   protected isArray(value: unknown): value is string[] {
     return Array.isArray(value);
