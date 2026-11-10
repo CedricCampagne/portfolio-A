@@ -3,26 +3,6 @@
   class="py-20 px-6 sm:px-8 lg:px-0 max-w-6xl mx-auto"
 >
 
-
-@if (isLoading()) {
-  <div class="flex justify-center items-center gap-12">
-    <div
-      class="w-10 h-10 border-4 border-green-500 border-t-transparent rounded-full animate-spin">
-    </div>
-    
-    @if (showMessage()) {
-      <p class="text-gray-600">
-        Le serveur met un peu plus de temps que prévu à démarrer.
-        Merci de patienter quelques instants…
-      </p>
-    } @else {
-      <p class="text-gray-600">
-        Chargement des projets...
-      </p>
-    }
-    </div>
-  } @else {
-    
     <h2 class="text-4xl font-bold mb-16 text-gray-900 text-center">
       Projets
     </h2>
@@ -46,10 +26,10 @@
   
           <!-- Tech badges -->
           <div
-            class="flex flex-wrap gap-2 mb-6 self-center md:self-start"
+            class="flex flex-wrap justify-center gap-2 mb-6 self-center "
           >
   
-            @for (tech of project.techs; track tech.id) {
+            @for (tech of project.techs; track tech.tech) {
   
               <span
                 class="bg-green-500 text-white font-medium px-3 py-1 rounded-full text-sm"
@@ -64,8 +44,7 @@
   
           <div
             class="flex flex-col sm:flex-row items-center self-center gap-6 my-4"
-          >
-  
+          >  
             @if (project.demo) {
   
               <a
@@ -84,31 +63,19 @@
               class="text-green-600 font-semibold hover:underline hover:underline-offset-4"
             >
               Voir le code
-            </a>
-  
-  
-          </div>
-  
-  
+            </a>    
+          </div>    
           <div
             class="flex flex-col sm:flex-row items-center self-center gap-4"
-          >
-  
+          >  
             <a
               [routerLink]="['/projects', project.slug]"
               class="border border-green-500 text-white bg-green-500 px-4 py-1 rounded hover:bg-white hover:text-green-500 transition-all duration-300"
             >
               Détails
-            </a>
-  
-          </div>
-  
-  
+            </a>  
+          </div>    
         </div>
-  
       }
-  
-  
     </div>
-  }
 </section>

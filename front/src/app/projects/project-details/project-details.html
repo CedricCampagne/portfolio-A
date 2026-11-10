@@ -1,20 +1,4 @@
-@if (isLoading()) {
-
-<section class="py-32 flex flex-col items-center gap-6">
-
-    <div
-        class="w-12 h-12 border-4 border-green-500 border-t-transparent rounded-full animate-spin">
-    </div>
-
-    <p class="text-gray-600 text-lg">
-        Chargement du projet...
-    </p>
-
-</section>
-
-} @else {
-    @let p = project();
-
+@let p = project();
 @if (p) {
 <section class="text-left max-w-5xl mx-auto px-6 sm:px-8 lg:px-0 py-20">
 
@@ -34,7 +18,7 @@
         </div>
     </div>
     <!-- Sections dynamiques -->
-    @for (section of p.sections; track section.id) {
+    @for (section of p.sections; track section.title) {
 
         <div class="prose max-w-4xl mx-auto py-4 mb-10 text-gray-700 border-t border-gray-200 pt-16">
 
@@ -76,7 +60,7 @@
         </h2>
 
         <div class="flex flex-wrap justify-center md:justify-start gap-2 max-w-4xl mx-auto">
-            @for (tech of p.techs; track tech.id) {
+            @for (tech of p.techs; track tech.tech) {
                 <span
                 class="text-white border px-3 py-1 rounded-full text-sm font-medium
                         bg-green-500 hover:bg-white hover:text-green-500 transition-all duration-300 cursor-pointer"
@@ -139,7 +123,6 @@
     </section>
 
     }
-}
 
 
 
