@@ -1,8 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { ProjectService } from '../../../projects/services/project.service';
 import { RouterLink } from '@angular/router';
-import { finalize } from 'rxjs';
+import { projects } from '../../../data/projects';
 
 @Component({
   selector: 'app-projects',
@@ -15,30 +13,10 @@ import { finalize } from 'rxjs';
 })
 export class Projects {
 
-  private projectService = inject(ProjectService);
-
-  isLoading = signal(true);
-  showMessage = signal(false);
-
-  constructor(){
-    setTimeout(()=> {
-      if(this.isLoading()){
-        this.showMessage.set(true);
-      }
-    },5000);
-  }
-
-  projects = toSignal(
-    this.projectService.getProjects().pipe(
-      finalize(() => this.isLoading.set(false))
-    ),
-    {
-      initialValue: []
-    }
-  );
+  projects = signal(projects);
 
   projectsSorted = computed (()=>
-    [...this.projects()].sort((a,b) => b.id - a.id)
+    [...this.projects()].sort((a,b) => a.id - b.id)
   );
 
 }
